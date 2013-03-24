@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  
+  div#div-add
+    p Room Num :
+      input(id="room['num']")
+    p If&nbsp;&nbsp;&nbsp;&nbsp;Use &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+      input(id="room['ifuse']")
+    input(type="button",value="add",id="btn-add-room")
+
+  div#div-list
+    - if (rooms.length)
+      ul
+        - rooms.forEach(function(room){
+          li Room Num :&nbsp;&nbsp;
+            =room.num
+          li Room iduse :&nbsp;&nbsp;
+            =room.ifuse
+          input(type="button",value="delete",id="btn-delete-room")
+        - })
+
+  div#div-modify

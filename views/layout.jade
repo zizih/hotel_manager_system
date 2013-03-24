@@ -1,0 +1,24 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    script(type="text/javascript",src="/js/lib/jquery.js")
+    script(type="text/javascript",src="/js/lib/backbone.js")
+    script(type="text/javascript",src="/js/common.js")
+    
+  body
+    div.navbar.navbar-inner
+      div.nav-collapse.collapse
+        a.brand(href="#") HotelManagerSystem
+        ul.nav
+         li
+           a(href="#")
+             i.icon-home   
+         li.divider-vertical
+         li
+           a(href="#")
+             i.icon-file          
+    div.container
+      block content

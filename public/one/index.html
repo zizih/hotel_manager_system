@@ -1,0 +1,62 @@
+<html>
+<head>
+	<title>Hotel System</title>
+	<link rel='stylesheet' href='/css/style.css' />
+    <link rel='stylesheet' href='/css/bootstrap.css' />
+</head>
+<body>
+
+	<div class="navbar navbar-inner">
+		<div class="container-fluid">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<a class="brand" href="#" name="top">Hotel System</a>
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<li><a href="#"><i class="icon-home"></i>Home</a></li>
+					<li class="divider-vertical"></li>		
+					<li><a href="/add">Add</a></li>
+					<li class="divider-vertical"></li>
+					<li><a href="/list">List</a></li>
+					<li class="divider-vertical"></li>
+					<li><a href="/select">select</a></li>
+					<li class="divider-vertical"></li>
+					<li><a href="/modify">modify</a></li>
+					<li class="divider-vertical"></li>
+				</ul>			
+			</div>
+		</div>
+	</div>
+	
+	<div id="container">
+	</div>
+
+	<div id="div-add">
+		Room Num: <input type="text" name="room['num']">
+		<br>
+		Room ifUse: <input type="text" name="room['ifuse']">
+		<br>
+		<input type="button" value="add">
+	</div>
+
+	<div id="div-list">
+		<% rooms.foreach(function(room){ %>
+			<ul>
+				<li>Room Num: <%= room.num %></li>
+				<li>Room ifuse: <%= room.ifuse%></li>
+			</ul>
+		<% }) %>
+	</div>
+
+	<script type="text/html" id="addTempl">
+
+	</script>
+
+	<script type="text/html" id="listTempl">
+
+	</script>
+</body>
+</html>
