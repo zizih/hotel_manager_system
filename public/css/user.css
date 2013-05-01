@@ -1,0 +1,21 @@
+#user{
+	display : none;
+}
+
+#div-user-login{
+	background: #444;
+	padding: 20px;
+	margin:20px;
+	color: #fff;
+	text-align: center;	
+	display: none;
+}
+
+#div-user-reg{
+	background: #444;
+	padding: 20px;
+	margin:20px;
+	color: #fff;
+	display: none;
+	text-align: center;
+}

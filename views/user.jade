@@ -1,0 +1,31 @@
+
+block content
+
+  div#user
+    input(type="button",id="btn-user-tologin",value="To Login")
+    input(type="button",id="btn-user-toreg",value="To register")
+  
+    div#div-user-login
+      欢迎登录：
+      p User Name :
+        input(id="input_user_login_name")
+      p PassWord&nbsp;&nbsp;&nbsp;:
+        input(id="input_user_login_passwd")
+      input(type="button",value="Login",id="btn-user-login")
+  
+    div#div-user-reg
+      欢迎注册： 
+      p User Name :
+        input(id="input_user_reg_name")
+      p Passwd&nbsp;&nbsp;&nbsp;Id:
+        input(type="password",id="input_user_reg_passwd")
+      p User&nbsp;&nbsp;&nbsp;Id:
+        input(type="password",id="input_user_reg_card")
+      p User Role:
+        select(id="select_user_reg_role")
+          - if (!!roles)
+            - roles.forEach(function(role){
+                option(value=role.name) #{role.name}
+            - })
+      input(type="button",value="Register",id="btn-user-reg")
+    

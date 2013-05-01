@@ -1,0 +1,62 @@
+#level {
+	display: none;
+}
+
+#div-level-add {
+	background: #444;
+	padding: 20px;
+	margin: 20px;
+	color: #fff;
+	text-align: center;
+}
+
+#div-level-book-input {
+	background: #444;
+	padding: 20px;
+	margin: 20px;
+	color: #fff;
+	text-align: center;
+}
+
+#div-level-list {
+	border: solid #444;
+	color: #fff;
+	text-align: center;
+	margin-top: 20px;
+}
+
+li {
+	text-decoration: none;
+	list-style: none;
+	text-align: center;
+}
+
+.ul-levels {
+	color: black;
+	background: #eee;
+	width: 180px;
+	height: 100px;
+	float: left;
+	background: #444;
+	color: #fff;
+	padding: 10px;
+}
+
+#div-level-search {
+	color: #fff;
+	text-align: center;
+	background: #444;
+	padding: 20px;
+}
+
+#btn-level-save {
+	display: none;
+}
+
+#div-level-search-result {
+	border: solid #444;
+	text-align: center;
+	background: #444;
+	color: #fff;
+	margin-top: 20px;
+}

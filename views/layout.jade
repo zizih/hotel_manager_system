@@ -1,0 +1,42 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/common.css')
+    link(rel='stylesheet', href='/css/room.css')
+    link(rel='stylesheet', href='/css/user.css')
+    link(rel='stylesheet', href='/css/level.css')
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    script(type="text/javascript",src="/js/lib/jquery.js")
+    script(type="text/javascript",src="/js/room.js")
+    script(type="text/javascript",src="/js/user.js")
+    script(type="text/javascript",src="/js/level.js")
+    
+  body
+    div.navbar.navbar-inner
+      div.nav-collapse.collapse
+        a.brand(href="/") HotelManagerSystem
+        ul.nav
+          li
+            a(href="/",id="a-nav-room") Room
+              i.icon-home
+          li.divider-vertical
+          li
+            a(href="#!level",id="a-nav-level") Level
+              i.icon-hand-up
+          li.divider-vertical  
+          li.divider-vertical
+          li.divider-vertical
+          li.divider-vertical
+          li.divider-vertical
+          li.divider-vertical
+          li.divider-vertical
+          li.divider-vertical
+          li.divider-vertical
+          li
+            a(href="#!u",id="a-nav-user") #{iflogin?"Logout":"Login"}
+          li
+            a(href="#!search",id="a-nav-search")      
+              i.icon-search
+    div.container
+      block content

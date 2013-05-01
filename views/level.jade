@@ -1,0 +1,31 @@
+
+block content
+  
+  div#level
+    div#div-level-add
+      p Level Name :
+        input(id="input_level_name")
+      p Level Num :
+        input(type="number",id="input_level_num")
+      p Level Price :
+        input(type="number",id="input_level_price")
+      input(type="button",value="add",id="btn-level-add")
+      input(type="button",value="save",id="btn-level-save")
+
+    div#div-level-list
+      - if (levels.length)
+        - levels.forEach(function(level){
+          ul.ul-levels(id=level._id)
+            #{level.price}
+            li level Name :&nbsp;&nbsp;
+              strong(class='txt-level-name')
+                =level.name
+            li Level Num :&nbsp;&nbsp;
+              strong(class='txt-level-num')
+                =level.num
+            li Level Price :&nbsp;&nbsp;
+              strong(class='txt-level-price')
+                =level.price
+            input(type="button",value="delete",class="btn-level-delete")
+            input(type="button",value="modify",class="btn-level-modify")
+        - })

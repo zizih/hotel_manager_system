@@ -1,0 +1,106 @@
+
+block content
+  
+  div#room
+    
+    a(href="#!r/book",id="a-room-add") Add
+      i.icon-add
+    a(href="#!r/book",id="a-room-book") Book
+      i.icon-ok-circle
+    a(href="#!r/unbook",id="a-room-unbook") UnBook
+      i.icon-remove-circle
+    
+    div#div-room-add
+      div#div-room-add-input 
+        p Room Num :
+          input(type="number",id="input_room_num")
+        p Level&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+          select(id="select_user_reg_role")
+            - if (!!levels)
+              - levels.forEach(function(level){
+                  option(value=level.name) #{level.name}
+              - })
+        input(type="button",value="add",id="btn-room-add")
+        input(type="button",value="save",id="btn-room-save")
+
+      div#div-room-list
+        - if (rooms.length)
+          - rooms.forEach(function(room){
+            ul.ul-rooms(id=room.num)
+              #{room.num}
+              li Room Num :&nbsp;&nbsp;
+                strong(class='txt-room-num')
+                  =room.num
+              li Room Level :&nbsp;&nbsp;
+                strong(class='txt-room-level')
+                  =room.level
+              input(type="button",value="delete",class="btn-room-delete")
+              input(type="button",value="modify",class="btn-room-modify")
+          - })
+        
+    div#room-unbook
+      p there are #{bookrooms.length} rooms have been booked.
+      div#div-room-book-list
+        - if (bookrooms.length)
+          - bookrooms.forEach(function(room){
+            ul.ul-rooms(id=room.num,style="height:180px")
+              #{room.num}
+              li Room Num :&nbsp;&nbsp;
+                strong(class='txt-room-num')
+                  =room.num
+              li Room Level :&nbsp;&nbsp;
+                strong(class='txt-room-level')
+                  =room.level
+              li User Id Card :
+                strong(class='txt-room-user-id')
+                  =room.user
+              li Start Time:
+                strong(class='txt-room-start-time')
+                  =room.starttime
+              li End Time:
+                strong(class='txt-room-end-time')
+                  =room.endtime
+              input(type="button",value="unbook",class="btn-room-unbook")
+          - })
+
+
+    div#room-book
+      div#div-room-book-input
+        p.txt_book_room_propmt *
+        p User Id Card :
+          input(id="input_room_user")
+        p Start Time:
+          input(type="date",id="input_room_start_date",style="width:130px;")
+          input(type="time",id="input_room_start_time",style="width:80px;")
+        p End Time:
+          input(type="date",id="input_room_end_date",style="width:130px;")
+          input(type="time",id="input_room_end_time",style="width:80px;")
+        input(type="button",value="book",id="btn-room-book")
+      p there are #{unbookrooms.length} rooms haven't been booked.
+      div#div-room-unbook-list
+        - if (unbookrooms.length)
+          - unbookrooms.forEach(function(room){
+            ul.ul-rooms(id=room.num)
+              #{room.num}
+              li Room Num :&nbsp;&nbsp;
+                strong(class='txt-room-num')
+                  =room.num
+              li Room Level :&nbsp;&nbsp;
+                strong(class='txt-room-level')
+                  =room.level
+              input(type="button",value="book",class="btn-room-book")
+          - })
+          
+  div#search
+      div#div-room-search
+        p Input Room Nummber :
+        p 
+          span.input-append
+            input(type="number",id="input_room_search",step="any")
+            span.add-on
+              a(href="#",id="btn-room-search")
+                i.icon-search
+
+      div#div-room-search-result
+
+
