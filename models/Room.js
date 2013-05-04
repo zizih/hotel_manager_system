@@ -1,16 +1,17 @@
 
 var mongoose = require('./mongoose');
-var ObjectId = mongoose.Schema.ObjectId;
+var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
 
 var RoomSchema = mongoose.Schema({
 	id : ObjectId,
 	num : Number,
-	level_id : ObjectId,
+	level : {},
 	ifbook : Boolean,
 	starttime : String,
 	endtime : String,
-	user_id : ObjectId
+	user : {} 
 });
-var Room = mongoose.model('room', RoomSchema);
 
+var Room = mongoose.model('room', RoomSchema);
 module.exports = Room;

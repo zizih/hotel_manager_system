@@ -63,6 +63,9 @@ $(document).ready(function(){
 	DivRoomAdd.show();
 	DivRoomBook.hide();
 	DivRoomUnbook.hide();
+	
+	var booksNum = 0;
+	var unbooksNum = 0;
 
 	BtnRoomAdd.on('click',function(){
 		$.ajax({
@@ -86,7 +89,8 @@ $(document).ready(function(){
 							  "<ul style='background:#0f0' class='ul-rooms' id=" + room.num + ">"
 								+ "new"
 								+ "<li>Room Num :&nbsp;&nbsp;<strong class='txt-room-num'>" + room.num + "</strong></li>"
-								+ "<li>Room Level :&nbsp;&nbsp;<strong class='txt-room-level'>" + room.level + "</strong></li>"
+								+ "<li>Room Level :&nbsp;&nbsp;<strong class='txt-room-level'>" + room.level.name + "</strong></li>"
+								+ "<li>Room Price :&nbsp;&nbsp;<strong class='txt-room-level'>" + room.level.price + "</strong></li>"
 								+ "<input type='button' value='delete' class='btn-room-delete' onclick=\"alert('为避免进行频繁的相反操作，刷新后才可以使用')\">"
 								+ "<input type='button' value='modify' class='btn-room-modify' onclick=\"alert('为避免进行频繁的相反操作，刷新后才可以使用')\">"
 							+ "</ul>"
@@ -97,7 +101,7 @@ $(document).ready(function(){
 				        	+ "<li> Room Num :&nbsp;&nbsp;"
 				           		+ "<strong class='txt-room-num'>" + room.num + "</strong>"
 				            + "<li> Room Level :&nbsp;&nbsp;"
-				             	+ "<strong class='txt-room-level'>" + room.level +"</strong>"
+				             	+ "<strong class='txt-room-level'>" + room.level.name +"</strong>"
 				            +"<input type='button' value='book' class='btn-room-book'>"
 				        +"</ul>"
 						);
@@ -190,7 +194,7 @@ $(document).ready(function(){
 							  "<ul style='background:#444' class='ul-rooms' id=" + room.num + ">"
 							+ "new"
 							+ "<li>Room Num :&nbsp;&nbsp;<strong class='txt-room-num'>" + room.num + "</strong></li>"
-							+ "<li>Room Level:&nbsp;&nbsp;<strong class='txt-room-level'>" + room.level + "<strong></li>"
+							+ "<li>Room Level:&nbsp;&nbsp;<strong class='txt-room-level'>" + room.level.name + "<strong></li>"
 							+ "</ul>"
 							);
 			}
@@ -220,7 +224,6 @@ $(document).ready(function(){
 			url : '/room/book',
 			data : JSON.stringify({
 				num : num,
-				level : level,
 				user : user,
 				starttime : starttime,
 				endtime : endtime
@@ -243,7 +246,10 @@ $(document).ready(function(){
 				              + "<strong class='txt-room-num'>" + room.num + "</strong>"
 				              +"</li>"
 				            + "<li> Room Level :&nbsp;&nbsp;"
-				              + "<strong class='txt-room-level'>" + room.level +"</strong>"
+				              + "<strong class='txt-room-level'>" + room.level.name +"</strong>"
+				              +"</li>"
+				            + "<li> Room Price :&nbsp;&nbsp;"
+				              + "<strong class='txt-room-level'>" + room.level.price +"</strong>"
 				              +"</li>"
 				            + "<li> User Id Card :"
 				              + "<strong class='txt-room-user-id'>" + room.user +"</strong>" 
@@ -257,6 +263,8 @@ $(document).ready(function(){
 				            +"<input type='button' value='unbook' class='btn-room-unbook' onclick=\"alert('为避免进行频繁的相反操作，刷新后才可以使用')\">"
 				        +"</ul>"
 						);
+					DivRoomBook.children('p.book-pro').html(" 刚订了 " + (++unbooksNum));
+					DivRoomUnbook.children('p.unbook-pro').html(" 刚订了 " + unbooksNum);
 				}
 			}
 		});	
@@ -284,10 +292,13 @@ $(document).ready(function(){
 				        	+ "<li> Room Num :&nbsp;&nbsp;"
 				           		+ "<strong class='txt-room-num'>" + room.num + "</strong>"
 				            + "<li> Room Level :&nbsp;&nbsp;"
-				             	+ "<strong class='txt-room-level'>" + room.level +"</strong>"
+				             	+ "<strong class='txt-room-level'>" + room.level.name +"</strong>"
 				            +"<input type='button' value='book' class='btn-room-book' onclick=\"alert('为避免进行频繁的相反操作，刷新后才可以使用')\">"
 				        +"</ul>"
 						);
+					DivRoomBook.children('p.book-pro').html(" 刚退订了 " + (++booksNum));
+					DivRoomUnbook.children('p.unbook-pro').html(" 刚退订了 " + booksNum);
+					
 				}
 			}
 		});

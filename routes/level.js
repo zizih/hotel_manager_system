@@ -4,9 +4,6 @@ var Level = require('../models/Level');
 
 //post
 exports.add = function(req, res){
-	console.log('recieve name: ' + req.body['name']);
-	console.log('recieve num: ' + req.body['num']);
-	console.log('recieve price: ' + req.body['price']);
     Level.findOne({name :req.body['name']},function(err,level){
 	  	if(!!level){ 
 	  		level.name = req.body['name']; 		
@@ -34,7 +31,6 @@ exports.add = function(req, res){
 
 //get
 exports.delete = function(req,res){
-	console.log('remove: ' + req.params.id);
 	Level.findById(req.params.id,function(err,level){
 		console.log("remove: " + level);
 		level.remove();
@@ -48,8 +44,6 @@ exports.delete = function(req,res){
 
 //post
 exports.search = function(req,res){
-	console.log(req.params);
-	console.log(parseInt(req.params.room_num));
 	Room.findOne({
 		num : parseInt(req.params.room_num)
 	},function(err,room){

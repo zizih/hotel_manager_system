@@ -15,7 +15,7 @@ block content
         p Room Num :
           input(type="number",id="input_room_num")
         p Level&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-          select(id="select_user_reg_role")
+          select(id="input_room_level")
             - if (!!levels)
               - levels.forEach(function(level){
                   option(value=level.name) #{level.name}
@@ -33,13 +33,17 @@ block content
                   =room.num
               li Room Level :&nbsp;&nbsp;
                 strong(class='txt-room-level')
-                  =room.level
+                  =room.level.name
+              li Room Price :&nbsp;&nbsp;
+                strong(class='txt-room-price')
+                  =room.level.price
               input(type="button",value="delete",class="btn-room-delete")
               input(type="button",value="modify",class="btn-room-modify")
           - })
         
     div#room-unbook
-      p there are #{bookrooms.length} rooms have been booked.
+      p 被订房间数： #{bookrooms.length}.
+      p.unbook-pro 
       div#div-room-book-list
         - if (bookrooms.length)
           - bookrooms.forEach(function(room){
@@ -50,7 +54,7 @@ block content
                   =room.num
               li Room Level :&nbsp;&nbsp;
                 strong(class='txt-room-level')
-                  =room.level
+                  =room.level.name
               li User Id Card :
                 strong(class='txt-room-user-id')
                   =room.user
@@ -76,7 +80,8 @@ block content
           input(type="date",id="input_room_end_date",style="width:130px;")
           input(type="time",id="input_room_end_time",style="width:80px;")
         input(type="button",value="book",id="btn-room-book")
-      p there are #{unbookrooms.length} rooms haven't been booked.
+      p 可以订的房间数： #{unbookrooms.length}.
+      p.book-pro
       div#div-room-unbook-list
         - if (unbookrooms.length)
           - unbookrooms.forEach(function(room){
@@ -87,7 +92,7 @@ block content
                   =room.num
               li Room Level :&nbsp;&nbsp;
                 strong(class='txt-room-level')
-                  =room.level
+                  =room.level.name
               input(type="button",value="book",class="btn-room-book")
           - })
           

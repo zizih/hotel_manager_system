@@ -7,7 +7,7 @@ var UserSchema = mongoose.Schema({
 	name : String,
 	cardId : String,
 	passwd : String,
-	roleId : ObjectId
+	roleId : {}
 });
 
 var User = mongoose.model('user', UserSchema);

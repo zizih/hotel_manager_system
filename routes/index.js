@@ -8,7 +8,9 @@ var Role = require('../models/Role');
 var Level = require('../models/Level');
 
 exports.index = function(req, res){
+	
 	Room.find({},function(err,rooms){
+		console.log(rooms);
 		Room.find({ifbook : false},function(err,unbookrooms){
 			Room.find({ifbook : true},function(err,bookrooms){
 				Role.find({},function(err,roles){
